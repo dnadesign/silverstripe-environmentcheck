@@ -18,7 +18,9 @@ class DevCheckController extends Controller {
 	function index($request) {
 		$suiteName = $request->param('Suite') ? $request->param('Suite') : 'check';
 		$e = new EnvironmentChecker($suiteName, 'Environment status');
-		$e->init($this->config()->permission);  //check for admin permissions before running this check
+		
+		$e->init($this->config()->permission);  // check for admin permissions before running this check
+
 		return $e;
 	}
 }

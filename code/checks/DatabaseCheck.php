@@ -1,17 +1,14 @@
 <?php
-/**
- * This file contains a number of default environment checks that you can use.
- */
-
 
 /**
  * Check that the connection to the database is working, by ensuring that the table exists and that
  * the table contain some records.
  * By default, Member will be checked.
  * 
- * @param $checkTable The table that will be checked.
+ * @package environmentcheck
  */
 class DatabaseCheck implements EnvironmentCheck {
+	
 	protected $checkTable;
 	
 	function __construct($checkTable = "Member") {
