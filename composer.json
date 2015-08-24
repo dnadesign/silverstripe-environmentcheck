@@ -3,15 +3,12 @@
 	"description": "Provides an API for building environment tests",
 	"type": "silverstripe-module",
 	"keywords": ["silverstripe", "testing", "environment", "environmentcheck"],
-	"authors": [
-	{
+	"authors": [{
 		"name": "Sam Minnee",
 		"email": "sam@silverstripe.com"
-	}
-	],
+	}],
 
-	"require":
-	{
+	"require": {
 		"silverstripe/framework": "3.*"
 	}
 }
