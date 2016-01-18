@@ -7,15 +7,15 @@
 class BinaryExistsCheck implements EnvironmentCheck {
 
 	protected $binary;
-	
+
 	function __construct($binary = "Member") {
 		$this->binary = $binary;
 	}
-	
+
 	function check() {
 		$command = (PHP_OS == 'WINNT') ? 'where' : 'which';
 		$binary = $this->binary;
-		
+
 		$process = proc_open(
 			"$command $binary",
 			array(
@@ -25,7 +25,7 @@ class BinaryExistsCheck implements EnvironmentCheck {
 			),
 			$pipes
 		);
-		
+
 		if ($process !== false) {
 			$stdout = stream_get_contents($pipes[1]);
 			$stderr = stream_get_contents($pipes[2]);

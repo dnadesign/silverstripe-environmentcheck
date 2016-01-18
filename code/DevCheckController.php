@@ -11,16 +11,29 @@ class DevCheckController extends Controller {
 	);
 
 	/**
-	 * @var string Permission code to check for access to this controller.
+	 * Permission code to check for access to this controller.
+	 *
+	 * @var string
 	 */
 	private static $permission = 'ADMIN';
 
-	function index($request) {
-		$suiteName = $request->param('Suite') ? $request->param('Suite') : 'check';
-		$e = new EnvironmentChecker($suiteName, 'Environment status');
-		
-		$e->init($this->config()->permission);  // check for admin permissions before running this check
+	/**
+	 * @param SS_HTTPRequest $request
+	 *
+	 * @return EnvironmentChecker
+	 *
+	 * @throws SS_HTTPResponse_Exception
+	 */
+	public function index($request) {
+		$suite = 'check';
 
-		return $e;
+		if ($name = $request->param('Suite')) {
+			$suite = $name;
+		}
+
+		$checker = new EnvironmentChecker($suite, 'Environment status');
+		$checker->init($this->config()->permission);
+
+		return $checker;
 	}
 }

@@ -2,13 +2,25 @@
 	"name": "silverstripe/environmentcheck",
 	"description": "Provides an API for building environment tests",
 	"type": "silverstripe-module",
-	"keywords": ["silverstripe", "testing", "environment", "environmentcheck"],
-	"authors": [{
-		"name": "Sam Minnee",
-		"email": "sam@silverstripe.com"
-	}],
-
-	"require": {
-		"silverstripe/framework": "3.*"
-	}
+	"keywords": ["silverstripe", "testing", "environment", "check"],
+	"authors": [
+		{
+			"name": "Will Rossiter",
+			"email": "will@fullscreen.io"
+		},
+		{
+			"name": "Sam Minnee",
+			"email": "sam@silverstripe.com"
+		}
+	],
+	"require":
+	{
+		"silverstripe/framework": "~3.1"
+	},
+	"extra": {
+		"branch-alias": {
+			"dev-master": "1.1.x-dev"
+		}
+	},
+	"license": "BSD-3-Clause"
 }
